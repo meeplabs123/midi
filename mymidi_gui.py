@@ -21,11 +21,11 @@ def main(stdscr):
 	curses.init_pair(3, curses.COLOR_BLUE, curses.COLOR_BLACK)
 	curses.init_pair(4, curses.COLOR_MAGENTA, curses.COLOR_BLACK)
 	curses.init_pair(5, curses.COLOR_CYAN, curses.COLOR_BLACK)
-	
+
 	g['COL'] = []
 	for n in range(100):
 		g['COL'].append(0)
-	
+
 	for v in range(6):
 		i = v+1
 		g['COL'][i] = curses.color_pair(v)
@@ -110,7 +110,7 @@ async def print_program():
 
 				all_notes_off()
 				
-				g['stdscr'].addstr(12, 0, "| Note: " + Mutils.get_note(note) + " [" + str(note) + "[ | Velocity: " + str(velocity) + " | Channel: " + str(channel0 + " | Duration: " + str(duration) + " |          ", g['COL'][8])
+				g['stdscr'].addstr(12, 0, "| Note: " + Mutils.get_note(note) + " [" + str(note) + "[ | Velocity: " + str(velocity) + " | Channel: " + str(channel) + " | Duration: " + str(duration) + " |          ", g['COL'][8])
 				g['stdscr'].refresh()
 				N_single(g['out'], note, velocity, duration)
 

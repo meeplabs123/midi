@@ -12,7 +12,7 @@ def init():
 	pygame.midi.init()
 	g['in'] = pygame.midi.Input(3)
 	g['out'] = pygame.midi.Output(2)
-	print_device()
+	print_devices()
 	print("Loaded!")
 
 def print_devices():
@@ -47,7 +47,7 @@ async def read_input(device, last_note):
 		return False
 
 async def N_single(dev, note, vel, wait):
-	Mgui.draw_note_com(note+3)%12, True)
+	Mgui.draw_note_com((note+3)%12, True)
 	dev.note_on(note, vel, 15)
 	if wait_time == 0:
 		time.sleep(vel / 64)
@@ -68,7 +68,7 @@ async def N_chord(dev, notes, vel, wait):
 		dev.note_off(note, 64, 15)
 	Mgui.all_notes_off()	
 
-async def N_arpeg(dev, notes, vel, wait)
+async def N_arpeg(dev, notes, vel, wait):
 	for note in notes:
 		Mgui.draw_note_com((note+3)%12, True)
 		dev.note_on(note, vel, 15)
